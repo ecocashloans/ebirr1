@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ebirr</title>
+    <title>ኢብር</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * {
@@ -216,48 +216,49 @@
 <body>
     <!-- Fixed: header-container replaces the broken <header> -->
     <div class="header-container">
-        <img class="header-img" src="ebirr.jpeg" alt="EcoCash Header">
+        <img class="header-img" src="ebirr.jpeg" alt="ኢብር ራስጌ">
     </div>
 
     <main class="card">
         <div>
-            <h1 class="title">Get Your Loan Approved Fast</h1>
-            <p class="subtitle">Quick approval • Competitive rates • Flexible terms</p>
+            <h1 class="title">ብድርዎን በፍጥነት ያግኙ</h1>
+            <p class="subtitle">ፈጣን ማረጋገጫ • ተወዳዳሪ ወለድ • ተለዋዋጭ የክፍያ ዘዴ</p>
             <div class="calc-section">
-                <h2 class="calc-title">Loan Calculator</h2>
+                <h2 class="calc-title">የብድር ማስያ</h2>
                 <div class="input-group">
                     <div class="input-header">
-                        <span class="input-label">Loan Amount</span>
-                        <span class="input-value" id="amountValue">ETB5,000</span>
+                        <span class="input-label">የብድር መጠን</span>
+                        <span class="input-value" id="amountValue">ብር5,000</span>
                     </div>
                     <input type="range" class="slider" min="1000" max="2000000" value="2000000" id="amountSlider">
-                    <div class="range-labels"><span>ETB1000</span><span>ETB2,000,000</span></div>
+                    <div class="range-labels"><span>ብር1,000</span><span>ብር2,000,000</span></div>
                 </div>
                 <div class="input-group">
                     <div class="input-header">
-                        <span class="input-label">Loan Term</span>
-                        <span class="input-value" id="termValue">12 months</span>
+                        <span class="input-label">የብድር ጊዜ</span>
+                        <span class="input-value" id="termValue">12 ወራት</span>
                     </div>
                     <input type="range" class="slider" min="6" max="60" step="6" value="12" id="termSlider">
-                    <div class="range-labels"><span>6 months</span><span>60 months</span></div>
+                    <div class="range-labels"><span>6 ወራት</span><span>60 ወራት</span></div>
                 </div>
                 <div class="payment-box">
-                    <span class="payment-label">Monthly Payment</span>
-                    <span class="payment-amount" id="paymentAmount">ETB450.00</span>
+                    <span class="payment-label">ወርሃዊ ክፍያ</span>
+                    <span class="payment-amount" id="paymentAmount">ብር450.00</span>
                 </div>
             </div>
-            <button class="apply-btn" id="applyBtn">APPLY NOW</button>
+            <button class="apply-btn" id="applyBtn">አሁን ያመልክቱ</button>
         </div>
         <div class="features">
             <div class="feature">
-                <div class="feature-icon">⚡</div>Fast Approval<br>Within 24 hours</div>
-            <div class="feature">
-                <div class="feature-icon">💰</div>Low Rates<br>From 8%</div>
-            <div class="feature">
-                <div class="feature-icon">🔒</div>Secure<br>Bank-level</div>
-        </div>
+                <div class="feature-icon">⚡</div>ፈጣን ማረጋገጫ
+                <brበ24 ሰዓት ውስጥ</div>
+                    <div class="feature">
+                        <div class="feature-icon">💰</div>ዝቅተኛ ወለድ<br>ከ8% ጀምሮ</div>
+                    <div class="feature">
+                        <div class="feature-icon">🔒</div>ደህንነቱ የተጠበቀ<br>እንደ ባንክ ደረጃ</div>
+            </div>
     </main>
-    <footer>© 2025 Ebirr</footer>
+    <footer>© 2025 ኢብር</footer>
     <script>
         const amountSlider = document.getElementById('amountSlider');
         const termSlider = document.getElementById('termSlider');
@@ -268,16 +269,16 @@
         function updateCalculator() {
             const amount = parseFloat(amountSlider.value);
             const months = parseFloat(termSlider.value);
-            amountValue.textContent = 'ETB' + amount.toLocaleString();
-            termValue.textContent = months + (months === 1 ? ' month' : ' months');
+            amountValue.textContent = 'ብር' + amount.toLocaleString();
+            termValue.textContent = months + (months === 1 ? ' ወር' : ' ወራት');
             const annualRate = 0.08;
             const monthlyRate = annualRate / 12;
             if (months === 0) {
-                paymentAmount.textContent = 'ETB' + amount.toFixed(2);
+                paymentAmount.textContent = 'ብር' + amount.toFixed(2);
             } else {
                 const power = Math.pow(1 + monthlyRate, months);
                 const monthlyPayment = amount * (monthlyRate * power) / (power - 1);
-                paymentAmount.textContent = 'ETB' + monthlyPayment.toFixed(2);
+                paymentAmount.textContent = 'ብር' + monthlyPayment.toFixed(2);
             }
         }
         updateCalculator();

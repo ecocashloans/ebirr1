@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoCash - Loan Applications</title>
+    <title>ኢብር - የብድር ማመልከቻ</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * {
@@ -149,50 +149,50 @@
 <body>
     <!-- Header — image fills 100% of the space -->
     <div class="header-container">
-        <img class="header-img" src="ebirr.jpeg" alt="EcoCash Header">
+        <img class="header-img" src="ebirr.jpeg" alt="ኢብር ራስጌ">
     </div>
 
     <main class="card">
-        <h1 class="form-title">Loan Application</h1>
+        <h1 class="form-title">የብድር ማመልከቻ</h1>
         <div class="progress-bar">
             <div class="progress-fill"></div>
         </div>
-        <div class="step-text">Step 1 of 3</div>
+        <div class="step-text">ደረጃ 1 ከ 3</div>
 
-        <label class="form-label">Loan Type</label>
+        <label class="form-label">የብድር አይነት</label>
         <select class="form-select" id="loanType">
-            <option>Personal Loan</option>
-            <option>Business Loan</option>
-            <option>Home Loan</option>
-            <option>Car Loan</option>
-            <option>Education Loan</option>
+            <option>የግል ብድር</option>
+            <option>የንግድ ብድር</option>
+            <option>የቤት ብድር</option>
+            <option>የመኪና ብድር</option>
+            <option>የትምህርት ብድር</option>
         </select>
 
-        <label class="form-label">Loan Amount (ETB)</label>
+        <label class="form-label">የብድር መጠን (ብር)</label>
         <input type="number" class="form-input" id="loanAmount" placeholder="5000" min="100" max="5000">
 
-        <label class="form-label">Loan Term</label>
+        <label class="form-label">የብድር ጊዜ</label>
         <select class="form-select" id="loanTerm">
-            <option>6 Months</option>
-            <option>12 Months</option>
-            <option>18 Months</option>
-            <option>24 Months</option>
-            <option>36 Months</option>
-            <option>48 Months</option>
-            <option>60 Months</option>
+            <option>6 ወራት</option>
+            <option>12 ወራት</option>
+            <option>18 ወራት</option>
+            <option>24 ወራት</option>
+            <option>36 ወራት</option>
+            <option>48 ወራት</option>
+            <option>60 ወራት</option>
         </select>
 
-        <label class="form-label">Purpose of Loan</label>
-        <textarea class="form-textarea" id="loanPurpose" placeholder="What will you use the loan for?"></textarea>
+        <label class="form-label">የብድር አላማ</label>
+        <textarea class="form-textarea" id="loanPurpose" placeholder="ብድሩን ለምን ይጠቀማሉ?"></textarea>
 
-        <button class="next-btn" id="nextBtn">NEXT STEP</button>
+        <button class="next-btn" id="nextBtn">ቀጣይ ደረጃ</button>
     </main>
-    <footer>© 2025 Ebirr</footer>
+    <footer>© 2025 ኢብር</footer>
 
     <script>
         // Pre-fill
         if (localStorage.getItem('loanAmount')) document.getElementById('loanAmount').value = localStorage.getItem('loanAmount');
-        if (localStorage.getItem('loanTerm')) document.getElementById('loanTerm').value = localStorage.getItem('loanTerm') + ' Months';
+        if (localStorage.getItem('loanTerm')) document.getElementById('loanTerm').value = localStorage.getItem('loanTerm') + ' ወራት';
 
         document.getElementById('nextBtn').addEventListener('click', function() {
             const amount = document.getElementById('loanAmount').value.trim();
@@ -211,14 +211,14 @@
             }
 
             if (!valid) {
-                alert('Please fill in all required fields.');
+                alert('እባክዎ አስፈላጊዎቹን መስኮች ይሙሉ።');
                 return;
             }
 
             localStorage.setItem('loanType', document.getElementById('loanType').value);
             localStorage.setItem('loanAmount', amount);
-            localStorage.setItem('loanTerm', document.getElementById('loanTerm').value.replace(' Months', ''));
-            localStorage.setItem('loanPurpose', purpose || 'Not specified');
+            localStorage.setItem('loanTerm', document.getElementById('loanTerm').value.replace(' ወራት', ''));
+            localStorage.setItem('loanPurpose', purpose || 'አልተገለጸም');
 
             window.location.href = 'details.html';
         });

